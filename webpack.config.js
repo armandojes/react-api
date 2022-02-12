@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-const ip = require('ip');
 
 const ENV = process.env.NODE_ENV;
 
