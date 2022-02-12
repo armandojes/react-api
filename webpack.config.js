@@ -30,7 +30,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.json'],
     alias: {
-      app: resolve(__dirname, '../source/app'),
+      source: resolve(__dirname, 'source'),
     },
   },
   target: 'node',

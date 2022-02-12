@@ -1,13 +1,14 @@
 import express from 'express';
 import ip from 'ip';
-import response from './middlewares/response';
+import response from 'source/middlewares/response';
+
+// modules
+import postRouter from 'source/modules/post';
 
 const server = express();
 server.use(response);
 
-server.get('*', (request, res) => {
-  res.success({ message: 'message' });
-});
+server.use('/post', postRouter);
 
 server.listen(
   3001,
