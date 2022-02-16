@@ -1,6 +1,7 @@
 import express from 'express';
 import ip from 'ip';
 import response from 'source/middlewares/response';
+import 'models/auth';
 
 // modules
 import postRouter from 'source/modules/post';

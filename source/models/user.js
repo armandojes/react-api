@@ -2,6 +2,12 @@ import { firestore } from 'core/firebase';
 
 const userCollection = firestore.collection('user');
 
+/**
+ * find user by email and password
+ * @param {String} email
+ * @param {String} password
+ * @returns {Promise<Object|null>} user's data or null
+ */
 export const getByEmailAndPassword = async (email = '', password = '') => {
   const querySnapshot = await userCollection
     .where('email', '==', email)

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watch --detectOpenHandles",
     "start": "nodemon build/api.js --watch build/api.js",
-    "watch": "webpack --watch"
+    "watch": "set NODE_ENV=development&& webpack"
   },
   "author": "@armandojes",
   "license": "ISC",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "express": "^4.17.2",
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^10.0.2",
+    "jsonwebtoken": "^8.5.1"
   }
 }

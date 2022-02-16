@@ -6,6 +6,9 @@ const config = {
     '^core/(.*)$': '<rootDir>/source/core/$1',
   },
   moduleFileExtensions: ['web.js', 'js'],
+  globals: {
+    ENV: 'development',
+  },
 };
 
 module.exports = config;
