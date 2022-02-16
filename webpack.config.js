@@ -31,6 +31,9 @@ const config = {
     extensions: ['.js', '.json'],
     alias: {
       source: resolve(__dirname, 'source'),
+      modules: resolve(__dirname, 'source/modules'),
+      models: resolve(__dirname, 'source/models'),
+      core: resolve(__dirname, 'source/core'),
     },
   },
   target: 'node',

@@ -2,14 +2,14 @@ const response = (_req, res, next) => {
   const success = (data) => {
     res.json({
       ...data,
-      error: true,
+      error: false,
     });
   };
 
   const error = (data) => {
     res.json({
       ...data,
-      error: false,
+      error: true,
     });
   };
 

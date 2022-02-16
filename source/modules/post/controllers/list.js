@@ -1,6 +1,9 @@
-const list = async (request, response) => {
+import { getAll } from 'models/post';
 
-  response.success({ message: 'hello posts' })
+const list = async (request, response) => {
+  const posts = await getAll();
+
+  response.success({ posts });
 };
 
 export default list;
