@@ -1,16 +1,14 @@
-// import user from 'models/user';
-// import auth from 'models/auth';
+import user from 'models/user';
+import auth from 'models/auth';
 import validator from 'helpers/validator';
 
 const login = async (request, response) => {
   const errors = validator(request.body, {
     password: {
-      type: String,
       required: true,
       length: { min: 8, max: 32 },
     },
     email: {
-      type: String,
       match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       required: true,
       length: { min: 5, max: 100 },
@@ -22,7 +20,29 @@ const login = async (request, response) => {
 
   if (errors) return response.error(errors, 400);
 
-  return response.success({ message: 'ok' });
+  const userResponse = await user.getUserByEmail(request.body.email);
+
+  // validate email
+  if (userResponse.error) {
+    return response.error(userResponse.errorMessage);
+  }
+
+  // validate password
+  if (userResponse.userData.password.toString() !== request.body.password.toString()) {
+    return response.error('the password is incorrect');
+  }
+
+  const secureUserData = { ...userResponse.userData };
+  delete secureUserData.password;
+  console.log(secureUserData);
+
+  const tokenResponse = await auth.createToken(secureUserData);
+  if (tokenResponse.error) return response.error(tokenResponse.errorMessage, 500);
+
+  response.success({
+    userData: secureUserData,
+    token: tokenResponse.token,
+  });
 };
 
 export default login;
