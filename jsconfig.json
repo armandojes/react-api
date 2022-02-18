@@ -6,6 +6,7 @@
       "modules/*": ["./source/modules/*"],
       "models/*": ["./source/models/*"],
       "core/*": ["./source/core/*"],
+      "helpers/*": ["./source/helpers/*"],
     }
   },
   "exclude": ["node_modules"]

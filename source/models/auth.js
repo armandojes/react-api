@@ -33,8 +33,8 @@ export const createToken = (payload) => new Promise((resolve) => {
 /**
  * @typedef {Object} decodeTokenResponse
  * @property {Boolead} error - operation status
- * @property {} payload - data decoded if operation is success
- * @property {} errorMessage - error description if operation is failed
+ * @property {Object|null} payload - data decoded if operation is success
+ * @property {String|null} errorMessage - error description if operation is failed
  */
 
 /**

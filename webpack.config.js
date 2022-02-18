@@ -34,6 +34,7 @@ const config = {
       modules: resolve(__dirname, 'source/modules'),
       models: resolve(__dirname, 'source/models'),
       core: resolve(__dirname, 'source/core'),
+      helpers: resolve(__dirname, 'source/helpers'),
     },
   },
   target: 'node',
