@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "body-parser": "^1.19.2",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "fast-crc32c": "^2.0.0",
     "firebase-admin": "^10.0.2",
     "install": "^0.13.0",

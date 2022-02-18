@@ -1,6 +1,7 @@
 import user from 'models/user';
 import auth from 'models/auth';
 import validator from 'helpers/validator';
+import asyncErrorWrapper from '../../../helpers/asyncErrorWrapper';
 
 const login = async (request, response) => {
   const errors = validator(request.body, {
@@ -39,10 +40,10 @@ const login = async (request, response) => {
   const tokenResponse = await auth.createToken(secureUserData);
   if (tokenResponse.error) return response.error(tokenResponse.errorMessage, 500);
 
-  response.success({
+  return response.success({
     userData: secureUserData,
     token: tokenResponse.token,
   });
 };
 
-export default login;
+export default asyncErrorWrapper(login);
