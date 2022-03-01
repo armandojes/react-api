@@ -1,6 +1,6 @@
 import { firestore } from 'core/firebase';
 
-const userCollection = firestore.collection('user');
+const userCollection = firestore.collection('users');
 
 /**
  * get a user by email

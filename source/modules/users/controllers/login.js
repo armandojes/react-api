@@ -35,14 +35,13 @@ const login = async (request, response) => {
 
   const secureUserData = { ...userResponse.userData };
   delete secureUserData.password;
-  console.log(secureUserData);
 
   const tokenResponse = await auth.createToken(secureUserData);
   if (tokenResponse.error) return response.error(tokenResponse.errorMessage, 500);
 
   return response.success({
-    userData: secureUserData,
     token: tokenResponse.token,
+    userData: secureUserData,
   });
 };
 

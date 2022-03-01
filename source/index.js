@@ -3,6 +3,7 @@ import express from 'express';
 import ip from 'ip';
 import response from 'source/middlewares/response';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 // modules
 import postRouter from 'source/modules/posts/postsRouter';
@@ -13,15 +14,15 @@ const server = express();
 // helpers middlewares
 server.use(response);
 server.use(bodyParser.json());
+server.use(cors());
 
 // integrate modules
-server.use('/post', postRouter);
-server.use('/user', usersRouter);
+server.use('/posts', postRouter);
+server.use('/users', usersRouter);
 
 // error 404 handler
 server.use((req, res) => {
-  res.error({
-    errorMessage: 'path not found',
+  res.error('path not found', 404, {
     path: req.url,
     statusCode: 404,
   });

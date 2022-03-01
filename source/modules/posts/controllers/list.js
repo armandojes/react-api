@@ -1,9 +1,9 @@
 import { getAll } from 'models/post';
+import asyncErrorWrapper from '../../../helpers/asyncErrorWrapper';
 
 const list = async (request, response) => {
   const posts = await getAll();
-
   response.success({ posts });
 };
 
-export default list;
+export default asyncErrorWrapper(list);
