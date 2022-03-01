@@ -3,6 +3,7 @@ const asyncErrorWrapper = (asyncHandler) => async (request, response, next) => {
   try {
     await asyncHandler(request, response, next);
   } catch (error) {
+    console.error(error);
     next(error);
   }
 };
