@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch --detectOpenHandles",
-    "start": "nodemon build/api.js --watch build/api.js",
-    "watch": "set NODE_ENV=development&& webpack"
+    "dev": "concurrently \"set NODE_ENV=development&& webpack\" \"nodemon build/api.js --watch build/api.js\""
   },
   "author": "@armandojes",
   "license": "ISC",
